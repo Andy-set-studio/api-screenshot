@@ -11,3 +11,6 @@ from = "/*"
 to = "/.netlify/builders/screenshot"
 status = 200
 force = true
+
+[[plugins]]
+package = "./plugins/keep-data-cache"
