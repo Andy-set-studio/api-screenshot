@@ -24,10 +24,10 @@
   "homepage": "https://github.com/11ty/api-screenshot#readme",
   "dependencies": {
     "@sparticuz/chromium": "^126.0.0",
-    "puppeteer-core": "^22.13.1"
+    "puppeteer-core": "^22.13.1",
+    "puppeteer": "^22.13.1",
   },
   "devDependencies": {
-    "puppeteer": "^22.13.1",
     "vercel": "^35.0.2"
   }
 }
