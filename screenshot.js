@@ -40,6 +40,8 @@ async function screenshot(url, options = {}) {
       "--disable-setuid-sandbox",
       "--disable-dev-shm-usage",
       "--disable-gpu",
+      "--no-zygote",
+      "--single-process", // This is vital for serverless shared libraries
     ];
     puppeteerOptions.headless = chromium.headless;
   }
