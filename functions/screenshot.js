@@ -12,7 +12,7 @@ function isFullUrl(url) {
   }
 }
 
-async function screenshot(url, { format, viewport, dpr = 2, withJs = true, wait, timeout = 8500 }) {
+async function screenshot(url, { format, viewport, dpr = 1, withJs = true, wait, timeout = 8500 }) {
   // Must be between 3000 and 8500
   timeout = Math.min(Math.max(timeout, 3000), 8500);
 
@@ -81,7 +81,7 @@ async function handler(event, context) {
   // e.g. /https%3A%2F%2Fwww.11ty.dev%2F/small/1:1/smaller/
   let pathSplit = event.path.split("/").filter(entry => !!entry);
   let [url, size, aspectratio, zoom, cachebuster] = pathSplit;
-  let format = "jpeg"; // hardcoded for now, but png and webp are supported!
+  let format = "png"; // hardcoded for now, but png and webp are supported!
   let viewport = [];
 
   // Manage your own frequency by using a _ prefix and then a hash buster string after your URL
@@ -124,7 +124,7 @@ async function handler(event, context) {
   }
 
   // Set Defaults
-  format = format || "jpeg";
+  format = format || "png";
   aspectratio = aspectratio || "1:1";
   size = size || "small";
   zoom = zoom || "standard";
