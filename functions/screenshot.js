@@ -17,7 +17,7 @@ async function screenshot(url, { format, viewport, dpr = 1, withJs = true, wait,
   timeout = Math.min(Math.max(timeout, 3000), 8500);
 
   const browser = await puppeteer.launch({
-    executablePath: await chromium.executablePath,
+    executablePath: await chromium.executablePath(),
     args: chromium.args,
     defaultViewport: {
       width: viewport[0],
