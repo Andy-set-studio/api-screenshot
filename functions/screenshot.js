@@ -12,7 +12,7 @@ function isFullUrl(url) {
   }
 }
 
-async function screenshot(url, { format, viewport, dpr = 1, withJs = true, wait, timeout = 8500 }) {
+async function screenshot(url, { format, viewport, dpr = 2, withJs = true, wait, timeout = 8500 }) {
   // Must be between 3000 and 8500
   timeout = Math.min(Math.max(timeout, 3000), 8500);
 
@@ -66,7 +66,7 @@ async function screenshot(url, { format, viewport, dpr = 1, withJs = true, wait,
   };
 
   if(format === "jpeg") {
-    options.quality = 80;
+    options.quality = 100;
   }
 
   let output = await page.screenshot(options);
