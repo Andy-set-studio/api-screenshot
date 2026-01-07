@@ -23,11 +23,9 @@ async function screenshot(url, options = {}) {
   } else {
     puppeteerWrapper = puppeteer;
 
-    chromium.setHeadlessMode = true;
-    chromium.setGraphicsMode = false;
-
     puppeteerOptions.executablePath = await chromium.executablePath();
-    puppeteerOptions.args = chromium.args;
+    // Spread the default args and add --no-sandbox if not present
+    puppeteerOptions.args = [...chromium.args, "--hide-scrollbars", "--disable-web-security"];
     puppeteerOptions.headless = chromium.headless;
   }
 
